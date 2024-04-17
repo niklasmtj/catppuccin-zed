@@ -1,10 +1,10 @@
 {
   "$schema": "https://zed.dev/schema/themes/v0.1.0.json",
-  "name": "Catppuccin",
+  "name": "Catppuccino",
   "author": "Andrew Tec <andrewtec@enjoi.dev>",
   "themes": [
     {
-      "name": "Catppuccin Latte - Bold",
+      "name": "Catppuccino Latte - Bold",
       "appearance": "light",
       "style": {
         "border": "#ccd0da",
@@ -378,7 +378,7 @@
       }
     },
     {
-      "name": "Catppuccin Frappé - Bold",
+      "name": "Catppuccino Frappé - Bold",
       "appearance": "dark",
       "style": {
         "border": "#414559",
@@ -752,7 +752,7 @@
       }
     },
     {
-      "name": "Catppuccin Macchiato - Bold",
+      "name": "Catppuccino Macchiato - Bold",
       "appearance": "dark",
       "style": {
         "border": "#363a4f",
@@ -1126,7 +1126,7 @@
       }
     },
     {
-      "name": "Catppuccin Mocha - Bold",
+      "name": "Catppuccino Mocha - Bold",
       "appearance": "dark",
       "style": {
         "border": "#313244",
