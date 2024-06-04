@@ -41,7 +41,21 @@
 1. Open Zed.
 2. `cmd+shift+p` and select _zed: extensions_
 3. Select _Catppuccin Themes_ and Install
-4. Select your Catppuccin theme in the dropdown shown after hitting ( `cmd+k`, `cmd+t` )
+4. Select your Catppuccin theme in the dropdown shown after hitting `cmd+k`, `cmd+t`
+
+### 🎨 Install Different Accents
+
+<details>
+
+<img src="./assets/accents.webp"/>
+
+1. Download accent`.json` from [GH Releases](https://github.com/catppuccin/zed/releases/latest)
+2. `mkdir -p ~/.config/zed/themes/`
+3. Move the accent`.json` file to `~/.config/zed/themes/`
+4. Restart Zed
+5. Select the chosen theme in the dropdown shown after hitting `cmd+k`, `cmd+t`
+
+</details>
 
 ## Development
 
@@ -60,20 +74,20 @@
 3. Test and check changes against current `themes/catppuccin.json` theme
 
    ```bash
-   # returns nothing if no differences found
-   whiskers zed.tera -o json --check themes/catppuccin.json
+   # returns nothing if OK
+   whiskers zed.tera -o json --overrides '{"accent": "mauve"}' --check themes/catppuccin-mauve.json
    ```
 
-4. Generate the zed extension theme file
+4. Build the zed extension `.json` theme file (mauve accent only)
+
+   ```bash
+   whiskers zed.tera -o json --overrides '{"accent": "mauve"}'
+   ```
+
+5. (Optional) 🎨 Generate **all** accents per Flavor
 
    ```bash
    whiskers zed.tera -o json
-   ```
-
-5. (Optional) Generate the accent you want (default is `mauve`)
-
-   ```bash
-   whiskers zed.tera -o json --overrides '{"accent": "rosewater"}'
    ```
 
 6. Refresh Zed to load changes after ensuring local extension install
@@ -86,14 +100,14 @@
 
 From [Zed Extensions docs](https://github.com/zed-industries/extensions/blob/c891c83f2fed6e388184ac87e7966b150680a3d1/AUTHORING_EXTENSIONS.md#testing-your-extension-locally):
 
-1. Install/copy this project into `~/Library/Application\ Support/Zed/extensions/installed/` directory
+1. Install project as "Zed Dev Extension"
 
-   ```bash
-   ln -sf $(pwd) ~/Library/Application\ Support/Zed/extensions/installed/
-   ```
+```
+cmd+shift+p > zed: install dev extension > (select current directory)
+```
 
 2. Refresh theme extension using: `cmd+shift+p` > `zed: reload extensions`
-3. (Optional) For larger changes, `zed: restart workspace` may be needed instead
+3. (Optional) `zed: restart workspace` may be needed if changes are not reflected immediately
 
 </details>
 
@@ -111,10 +125,12 @@ Zed organizes all extensions using `git submodules` in the [zed/extensions](http
    ```
 
 3. Bump catppuccin submodule
+
    ```
    cd extensions/catppuccin/ && git pull origin main
    ```
-4. Modify `extensions.json` to match version in [extension.json](./extension.json#L3)
+
+4. Modify the extensions/`extensions.toml` version to match value in [catpuccin/zed/extension.toml](./extension.toml#L3)
 5. Submit a PR to merge back to `zed/extensions`
 
 </details>
